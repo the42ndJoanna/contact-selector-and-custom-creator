@@ -1,4 +1,5 @@
 <template>
+    <aside class="sidebar-second"> 
     <template if:true={contact}>
         <div class="container">
             <div>{contact.Name}</div>
@@ -10,4 +11,5 @@
     <template if:false={contact}>
         <div>Please select a contact</div>
     </template>
+    </aside> 
 </template>
