@@ -3,7 +3,7 @@
         <!-- only show list of tiles when data is ready -->
         <!-- otherwise show 'Loading contacts...' -->
         <template if:true={ready} for:each={contacts} for:item="contact">
-            <c-tile key={contact.Id} contact={contact}></c-tile>
+            <c-tile key={contact.Id} contact={contact} ontileclick={handleTileClick}></c-tile>
         </template>
         <template if:false={ready}>
             <div>Loading Contacts...</div>

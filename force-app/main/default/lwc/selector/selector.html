@@ -4,9 +4,11 @@
         <div class="columns"> 
           <main class="main" > 
             <!-- contact list -->
+            <c-list oncontactselected={handleContactSelected}></c-list>
           </main> 
           <aside class="sidebar-second"> 
             <!-- contact detail -->
+            <c-detail contact={selectedContact}></c-detail>
           </aside> 
         </div> 
       </section> 
