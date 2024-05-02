@@ -1,3 +1,5 @@
-import { LightningElement } from 'lwc';
+import { LightningElement, api } from 'lwc';
 
-export default class Tile extends LightningElement {}
+export default class Tile extends LightningElement {
+    @api contact;
+}
