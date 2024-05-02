@@ -1,13 +1,13 @@
 <template>
     <template if:true={contact}>
         <div class="container">
-            <div>{contact.Name}</div>
+            <div class="slds-text-heading_small">{contact.Name}</div>
                 <c-custom-badge label={contact.Title}></c-custom-badge>
                 <c-custom-badge label={contact.Email}></c-custom-badge>
                 <c-custom-badge label={contact.Department}></c-custom-badge>
         </div>
     </template>
     <template if:false={contact}>
-        <div>Please select a contact</div>
+        <div class="slds-text-heading_medium">Please select a contact</div>
     </template>
 </template>
