@@ -1,3 +1,13 @@
 <template>
-    <!-- If no contact is selected, display 'select a contact'. If a contact is selected, show the contact detail. -->
+    <template if:true={contact}>
+        <div class="container">
+            <div>{contact.Name}</div>
+                <lightning-badge label={contact.Title}></lightning-badge>
+                <lightning-badge label={contact.Email}></lightning-badge>
+                <lightning-badge label={contact.Department}></lightning-badge>
+        </div>
+    </template>
+    <template if:false={contact}>
+        <div>Please select a contact</div>
+    </template>
 </template>
