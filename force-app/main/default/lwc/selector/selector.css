@@ -22,3 +22,8 @@ body {
   order: 2;
   background: #eee;
 }
+.sidebar-second{ 
+  width: 30%;
+  order: 3;
+  background: #ddd;
+}
