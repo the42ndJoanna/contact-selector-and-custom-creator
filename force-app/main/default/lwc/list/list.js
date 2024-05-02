@@ -14,7 +14,6 @@ export default class List extends LightningElement {
       handleTileClick(evt) {
         const event = new CustomEvent('contactselected', {
           detail: evt.detail,
-          bubbles: true
         });
         this.dispatchEvent(event);
       }

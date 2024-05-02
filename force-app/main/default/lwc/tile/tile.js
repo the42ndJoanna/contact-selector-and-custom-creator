@@ -6,7 +6,6 @@ export default class Tile extends LightningElement {
     tileClick() {
         const event = new CustomEvent('tileclick', {
             detail: this.contact,
-            bubbles: true
         });
         this.dispatchEvent(event);
     }
