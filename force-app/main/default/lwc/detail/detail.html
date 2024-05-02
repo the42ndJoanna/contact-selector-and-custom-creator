@@ -2,9 +2,9 @@
     <template if:true={contact}>
         <div class="container">
             <div>{contact.Name}</div>
-                <lightning-badge label={contact.Title}></lightning-badge>
-                <lightning-badge label={contact.Email}></lightning-badge>
-                <lightning-badge label={contact.Department}></lightning-badge>
+                <c-custom-badge label={contact.Title}></c-custom-badge>
+                <c-custom-badge label={contact.Email}></c-custom-badge>
+                <c-custom-badge label={contact.Department}></c-custom-badge>
         </div>
     </template>
     <template if:false={contact}>
