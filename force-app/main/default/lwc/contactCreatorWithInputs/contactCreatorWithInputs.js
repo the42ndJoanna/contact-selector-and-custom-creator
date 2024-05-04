@@ -1,5 +1,6 @@
 import { LightningElement } from 'lwc';
 import createNewContact from '@salesforce/apex/ContactController.createNewContact';
+import { ShowToastEvent } from 'lightning/platformShowToastEvent';
 
 export default class ContactCreatorWithInputs extends LightningElement {
     contact = {};
@@ -21,7 +22,12 @@ export default class ContactCreatorWithInputs extends LightningElement {
         if(this.isInputValid()) {
             createNewContact(this.contact)
             .then(() => {
-                console.log("Contact created successfully.")
+                const toastEvent = new ShowToastEvent({
+                    title: "Contact created",
+                    message: "Welcome " + this.contact.lastName + "!",
+                    variant: "success"
+                });
+                this.dispatchEvent(toastEvent);
             })
             .catch((error) => {
                 console.error('Error creating contact:', error);
