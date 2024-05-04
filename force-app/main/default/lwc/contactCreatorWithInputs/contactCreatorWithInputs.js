@@ -1,31 +1,17 @@
 import { LightningElement } from 'lwc';
-import createNewContact from '@salesforce/apex/ContactController.createNewContact';
 
 export default class ContactCreatorWithInputs extends LightningElement {
     contact = {};
 
     isInputValid() {
         let isValid = true;
-        let inputFields = this.template.querySelectorAll('.validate');
-        inputFields.forEach(inputField => {
-            if(!inputField.checkValidity()) {
-                inputField.reportValidity();
-                isValid = false;
-            }
-            this.contact[inputField.name] = inputField.value;
-        });
+        // validate all input values and update contact object
         return isValid;
     }
 
     handleSubmit() {
         if(this.isInputValid()) {
-            createNewContact(this.contact)
-            .then(() => {
-                console.log("Contact created successfully.")
-            })
-            .catch((error) => {
-                console.error('Error creating contact:', error);
-            });
+            // call apex method to create new contact
         }
     }
 }
