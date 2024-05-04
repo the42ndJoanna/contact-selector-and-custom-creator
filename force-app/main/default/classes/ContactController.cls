@@ -8,7 +8,7 @@ public with sharing class ContactController {
     }
 
     @AuraEnabled
-    public static void createNewContact(String firstName, String lastName, String title, String department, String email, String phone, Decimal pincode) {
+    public static void createNewContact(String firstName, String lastName, String title, String department, String email, String phone, Decimal orderAmount) {
         // Create a new Contact object
         Contact newContact = new Contact();
         newContact.FirstName = firstName;
@@ -17,7 +17,7 @@ public with sharing class ContactController {
         newContact.Department = department;
         newContact.Email = email;
         newContact.Phone = phone;
-        newContact.Pincode__c = pincode;
+        newContact.Order_Amount__c = orderAmount;
 
         // Insert the Contact into Salesforce
         insert newContact;
