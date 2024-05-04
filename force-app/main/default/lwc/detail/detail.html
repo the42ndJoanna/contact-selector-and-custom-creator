@@ -1,5 +1,5 @@
 <template>
-    <template if:true={contact}>
+    <template lwc:if={contact}>
         <div class="container">
             <div>{contact.Name}</div>
                 <lightning-badge label={contact.Title}></lightning-badge>
@@ -7,7 +7,7 @@
                 <lightning-badge label={contact.Department}></lightning-badge>
         </div>
     </template>
-    <template if:false={contact}>
+    <template lwc:else>
         <div>Please select a contact</div>
     </template>
 </template>
