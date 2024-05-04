@@ -11,6 +11,13 @@ import ORDER_AMOUNT_FIELD from '@salesforce/schema/Contact.Order_Amount__c';
 
 export default class ContactCreator extends LightningElement {
     objectApiName = CONTACT_OBJECT;
+    firstNameField = FIRST_NAME_FIELD;
+    lastNameField = LAST_NAME_FIELD;
+    titleField = TITLE_FIELD;
+    departmentField = DEPARTMENT_FIELD;
+    emailField = EMAIL_FIELD;
+    phoneField = PHONE_FIELD;
+    orderAmountField = ORDER_AMOUNT_FIELD;
     fields = [FIRST_NAME_FIELD, LAST_NAME_FIELD, TITLE_FIELD, DEPARTMENT_FIELD, EMAIL_FIELD, PHONE_FIELD, ORDER_AMOUNT_FIELD];
     
     handleSuccess(event) {
@@ -21,4 +28,10 @@ export default class ContactCreator extends LightningElement {
         });
         this.dispatchEvent(toastEvent);
     }
+
+    handleSubmit(event){
+        event.preventDefault(); // stop the form from submitting
+        const fields = event.detail.fields;
+        this.template.querySelector('lightning-record-edit-form').submit(fields);
+     }
 }

@@ -1,0 +1,46 @@
+<template>
+    <lightning-card
+        title="New Contact(lightning-record-edit-form)"
+    >
+        <div class="slds-var-m-around_medium">
+            <lightning-record-edit-form
+                object-api-name={objectApiName}
+                onsuccess={handleSuccess}
+                onsubmit={handleSubmit}
+            >
+                <lightning-input-field
+                    field-name={firstNameField}
+                ></lightning-input-field>
+                <lightning-input-field
+                    field-name={lastNameField}
+                ></lightning-input-field>
+                <lightning-input-field
+                    field-name={titleField}
+                ></lightning-input-field>
+                <lightning-input-field
+                    field-name={departmentField}
+                ></lightning-input-field>
+                <lightning-input-field
+                    field-name={emailField}
+                    pattern="[A-Za-z0-9._-]+@[a-z0-9-]+\.[a-z]{2,}$" 
+                    message-when-pattern-mismatch="Please enter a valid email"
+                ></lightning-input-field>
+                <lightning-input-field
+                    field-name={phoneField}
+                    pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}$" message-when-pattern-mismatch="Please enter a valid phone number"
+                ></lightning-input-field>
+                <lightning-input-field
+                    field-name={orderAmountField}
+                ></lightning-input-field>
+                <div class="slds-var-m-top_medium">
+                    <lightning-button
+                        variant="brand"
+                        type="submit"
+                        name="save"
+                        label="Save"
+                    ></lightning-button>
+                </div>
+            </lightning-record-edit-form>
+        </div>
+    </lightning-card>
+</template>
