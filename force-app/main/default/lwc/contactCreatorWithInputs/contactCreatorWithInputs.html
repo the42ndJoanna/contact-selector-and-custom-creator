@@ -1,8 +1,8 @@
 <template>
-    <lightning-card title="New Contact">
+    <lightning-card title="New Contact(lightning-input)">
         <p class="slds-var-p-around_small">
             <lightning-layout multiple-rows>
-                <lightning-layout-item padding="around-small" size="12" medium-device-size="6" large-device-size="6">
+                <lightning-layout-item padding="around-small" size="12">
                     <lightning-input name="firstName" class="validate" type="text" label="First Name"></lightning-input>
                     <lightning-input name="lastName" class="validate" type="text" label="Last Name"></lightning-input>
                     <lightning-input name="title" class="validate" type="text" label="Title"></lightning-input>
@@ -12,7 +12,7 @@
                     <lightning-input name="orderAmount" class="validate" type="number" label="Order Amount"></lightning-input>
                 </lightning-layout-item>
                 <lightning-layout-item size="12" class="slds-var-p-top_small">
-                    <lightning-button class="slds-align_absolute-center" label="Save" onclick={handleSubmit}></lightning-button>    
+                    <lightning-button variant="brand" label="Save" onclick={handleSubmit}></lightning-button>
                 </lightning-layout-item>
             </lightning-layout>
         </p>
