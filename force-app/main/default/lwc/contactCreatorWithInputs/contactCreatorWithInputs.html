@@ -9,7 +9,7 @@
                     <lightning-input name="department" class="validate" type="text" label="Department"></lightning-input>
                     <lightning-input name="email" class="validate" type="email" label="Email" pattern="[A-Za-z0-9._-]+@[a-z0-9-]+\.[a-z]{2,}$" message-when-pattern-mismatch="Please enter a valid email"></lightning-input>
                     <lightning-input name="phone" class="validate" type="tel" label="Phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}$" message-when-pattern-mismatch="Please enter a valid phone number"></lightning-input>
-                    <lightning-input name="pincode" class="validate" type="number" label="Pin Code" min="1000" max="999999" message-when-range-overflow="Please enter a correct pincode" message-when-range-underflow="Please enter a correct pincode"></lightning-input>
+                    <lightning-input name="orderAmount" class="validate" type="number" label="Pin Code" min="1000" max="999999" message-when-range-overflow="Please enter a correct pincode" message-when-range-underflow="Please enter a correct pincode"></lightning-input>
                 </lightning-layout-item>
                 <lightning-layout-item size="12" class="slds-var-p-top_small">
                     <lightning-button class="slds-align_absolute-center" label="Save" onclick={handleSubmit}></lightning-button>    

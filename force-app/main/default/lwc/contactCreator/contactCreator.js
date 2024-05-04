@@ -7,11 +7,11 @@ import TITLE_FIELD from '@salesforce/schema/Contact.Title';
 import DEPARTMENT_FIELD from '@salesforce/schema/Contact.Department';
 import EMAIL_FIELD from '@salesforce/schema/Contact.Email';
 import PHONE_FIELD from '@salesforce/schema/Contact.Phone';
-import PINCODE_FIELD from '@salesforce/schema/Contact.Pincode__c';
+import ORDER_AMOUNT_FIELD from '@salesforce/schema/Contact.Order_Amount__c';
 
 export default class ContactCreator extends LightningElement {
     objectApiName = CONTACT_OBJECT;
-    fields = [FIRST_NAME_FIELD, LAST_NAME_FIELD, TITLE_FIELD, DEPARTMENT_FIELD, EMAIL_FIELD, PHONE_FIELD, PINCODE_FIELD];
+    fields = [FIRST_NAME_FIELD, LAST_NAME_FIELD, TITLE_FIELD, DEPARTMENT_FIELD, EMAIL_FIELD, PHONE_FIELD, ORDER_AMOUNT_FIELD];
     
     handleSuccess(event) {
         const toastEvent = new ShowToastEvent({
