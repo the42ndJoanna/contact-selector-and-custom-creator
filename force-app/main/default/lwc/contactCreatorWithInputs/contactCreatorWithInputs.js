@@ -1,4 +1,5 @@
 import { LightningElement } from 'lwc';
+import createNewContact from '@salesforce/apex/ContactController.createNewContact';
 
 export default class ContactCreatorWithInputs extends LightningElement {
     contact = {};
@@ -18,7 +19,13 @@ export default class ContactCreatorWithInputs extends LightningElement {
 
     handleSubmit() {
         if(this.isInputValid()) {
-            console.log("contact >>>", this.contact)
+            createNewContact(this.contact)
+            .then(() => {
+                console.log("Contact created successfully.")
+            })
+            .catch((error) => {
+                console.error('Error creating contact:', error);
+            });
         }
     }
 }
