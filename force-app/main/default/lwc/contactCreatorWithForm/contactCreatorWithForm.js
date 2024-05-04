@@ -32,6 +32,7 @@ export default class ContactCreator extends LightningElement {
     handleSubmit(event){
         event.preventDefault(); // stop the form from submitting
         const fields = event.detail.fields;
+        // fields.Department = 'Finance';
         this.template.querySelector('lightning-record-edit-form').submit(fields);
      }
 }
