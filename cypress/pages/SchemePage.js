@@ -1,6 +1,5 @@
 export default class SchemePage {
-  path = Cypress.env("baseUrl") + "/lightning/n/Contact_Creator";
-  schemeName = "c-contact-creator-with-form";
+  path = Cypress.env("baseUrl") + "/lightning/n/Contact_Selector";
 
   visitScheme() {
     cy.visit(this.path, { timeout: 600000 });
@@ -8,15 +7,31 @@ export default class SchemePage {
 
   verifyScheme() {
     cy.get("app_flexipage-lwc-app-flexipage")
-      .find(this.schemeName, { includeShadowDom: true, timeout: 20000 })
+      .findWithShadow("c-selector")
       .then((el) => {
         return cy.wrap(el);
       })
       .should("be.visible")
-      .as("scheme");
+      .as("selector");
 
-    cy.get("@scheme")
-      .find("lightning-record-edit-form", { includeShadowDom: true })
-      .as("editForm");
+    cy.get("@selector").findWithShadow("c-list").should("be.visible");
+
+    cy.get("@selector")
+      .findWithShadow("c-detail div")
+      .should("contain.text", "Please select a contact");
+  }
+
+  clickFirstTile() {
+    cy.get("@selector").findWithShadow("c-list c-tile:first-of-type a").click();
+  }
+
+  verifyContactDetail() {
+    cy.get("@selector")
+      .findWithShadow("c-detail div div")
+      .should("contain.text", "Rose Gonzalez");
+
+    cy.get("@selector")
+      .findWithShadow("c-detail div c-custom-badge")
+      .should("have.length", 3);
   }
 }

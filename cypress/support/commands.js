@@ -25,11 +25,19 @@
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
 Cypress.Commands.add("login", () => {
-    cy.exec(
-      "sf org open -p /lightning -r --json | sed 's/\\n/\\s/g' | sed -r 's/[[0-9]{1,3}m//g' | sed -r 's/[\x01-\x1F\x7F]//g'"
-    ).then((response) => {
-      const loginUrl = JSON.parse(response.stdout).result;
-      cy.request(loginUrl);
-      cy.log("login done");
-    });
+  cy.exec(
+    "sf org open -p /lightning -r --json | sed 's/\\n/\\s/g' | sed -r 's/[[0-9]{1,3}m//g' | sed -r 's/[\x01-\x1F\x7F]//g'"
+  ).then((response) => {
+    const loginUrl = JSON.parse(response.stdout).result;
+    cy.request(loginUrl);
+    cy.log("login done");
   });
+});
+
+Cypress.Commands.add(
+  "findWithShadow",
+  { prevSubject: true },
+  (subject, selector) => {
+    return cy.wrap(subject).find(selector, { includeShadowDom: true });
+  }
+);
