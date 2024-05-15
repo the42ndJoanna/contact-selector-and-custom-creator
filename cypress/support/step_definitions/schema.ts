@@ -7,7 +7,7 @@ Before(() => {
   cy.login();
 });
 
-Given('I am on the Contact Creator Page', () => {
+Given('I am on the Contact Selector Page', () => {
   schemePage.visitScheme();
   schemePage.verifyScheme();
 });
